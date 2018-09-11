@@ -1,14 +1,14 @@
 <template>
   <div class="page">
     <div class="page__bd page__bd_spacing">
+      <div>{{showUserInfo.name}}</div>
       <div class="mpvueInfo-desc">{{mpvueInfo}}</div>
       <button type="primary" class="mt-15" @click="commitMpvueInfo">再次更新 state => mpvueInfo</button>
     </div>
   </div>
 </template>
-
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapState, mapGetters, mapMutations } from 'vuex';
 export default {
   mounted() {
     console.log(this.mpvueInfo);
@@ -16,7 +16,13 @@ export default {
   computed: {
     ...mapGetters([
       'mpvueInfo'
-    ])
+    ]),
+    // ...mapGetters({
+    //   mpvueInfo: 'mpvueInfo'
+    // }),
+    ...mapState({
+      showUserInfo: state => state.userInfo
+    })
   },
   methods: {
     ...mapMutations({
@@ -28,8 +34,8 @@ export default {
     }
   }
 }
-</script>
 
+</script>
 <style>
 .mpvueInfo-desc {
   margin-top: 15px;
@@ -38,7 +44,9 @@ export default {
   text-align: justify;
   word-break: break-all;
 }
+
 .mt-15 {
   margin-top: 30px;
 }
+
 </style>

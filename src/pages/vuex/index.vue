@@ -8,6 +8,7 @@
       <button class="weui-btn mini-btn" type="primary" size="mini" @click="getMpvueInfo">点击显示 state => mpvueInfo</button>
       <button class="weui-btn mini-btn" type="warn" size="mini" @click="commitMpvueInfo">点击更新 state => mpvueInfo</button>
       <div class="mpvueInfo-desc" v-show="showMpvueInfo">{{mpvueInfo}}</div>
+      <div class="mpvueInfo-desc" v-show="showMpvueInfo">{{userInfo.name + ' ' + userInfo.sex}}</div>
       <button type="primary" class="mt-15" @click="turnToVuexPage">点击跳转</button>
     </div>
   </div>
@@ -17,16 +18,16 @@ import { mapGetters, mapMutations } from 'vuex';
 export default {
   data() {
     return {
-      stateMpvueInfo: '',
       showMpvueInfo: false
     }
   },
   mounted() {
-    console.log(this.mpvueInfo);
+    console.log(this.userInfo);
   },
   methods: {
     ...mapMutations({
-      setMpvueInfoVuex: 'SET_MPVUEINFO'
+      setMpvueInfoVuex: 'SET_MPVUEINFO',
+      setUserInfoVuex: 'SET_USERINFO'
     }),
     turnToVuexPage() {
       wx.navigateTo({
@@ -37,13 +38,19 @@ export default {
       this.showMpvueInfo = true;
     },
     commitMpvueInfo() {
-      let mpvueInfoUpate = '基于 Vue.js 的小程序开发框架，从底层支持 Vue.js 语法和构建工具体系。---created by 美团点评'
+      let mpvueInfoUpate = '基于 Vue.js 的小程序开发框架，从底层支持 Vue.js 语法和构建工具体系。---created by 美团点评';
       this.setMpvueInfoVuex(mpvueInfoUpate);
+      this.setUserInfoVuex({
+        name: "loewe0202",
+        sex: "男",
+        age: 24
+      })
     }
   },
   computed: {
     ...mapGetters([
-      'mpvueInfo'
+      'mpvueInfo',
+      'userInfo'
     ])
   }
 }
