@@ -52,7 +52,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   data() {
@@ -104,15 +103,17 @@ export default {
     }
   }
 };
-</script>
 
+</script>
 <style>
 .weui-uploader__file {
   position: relative;
 }
+
 .weui-uploader__bd {
   overflow: visible;
 }
+
 .delete-icon {
   position: absolute;
   width: 40rpx;
@@ -123,6 +124,7 @@ export default {
   border-radius: 40rpx;
   z-index: 5;
 }
+
 .delete-icon::before {
   content: '';
   width: 26rpx;
@@ -133,4 +135,5 @@ export default {
   transform: translate(-50%, -50%);
   background: #fff;
 }
+
 </style>
