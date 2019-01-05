@@ -29,10 +29,8 @@
         </block>
       </div>
     </div>
-
   </div>
 </template>
-
 <script>
 import Fly from "flyio/dist/npm/wx";
 export default {
@@ -42,7 +40,7 @@ export default {
     }
   },
   methods: {
-    getNewsData: function (type) {
+    getNewsData: function(type) {
       wx.showLoading({
         title: '加载中',
         mask: true
@@ -59,41 +57,47 @@ export default {
     }
   }
 }
-</script>
 
+</script>
 <style>
 .content-list {
   background-color: #fff;
   z-index: 1;
   position: relative;
 }
+
 .list-item {
   height: 180rpx;
   width: 100%;
   box-sizing: border-box;
 }
+
 .list-item-content {
   padding: 20rpx 30rpx 20rpx 30rpx;
   border-bottom: 1px solid #e5e5e5;
   overflow: hidden;
   box-sizing: border-box;
 }
+
 .list-item-left {
   height: 140rpx;
   width: 186rpx;
   margin-right: 20rpx;
   float: left;
 }
+
 .list-item-left image {
   width: 100%;
   height: 100%;
 }
+
 .list-item-right {
   float: left;
   width: 484rpx;
   height: 140rpx;
   position: relative;
 }
+
 .article-title {
   font-size: 14px;
   color: #404040;
@@ -101,12 +105,14 @@ export default {
   height: 86rpx;
   overflow-y: hidden;
 }
+
 .article-source::before {
   content: "作者:";
   font-size: 12px;
   color: #888;
   margin-right: 10rpx;
 }
+
 .article-source {
   font-size: 12px;
   color: #888;
@@ -114,6 +120,7 @@ export default {
   bottom: 0;
   right: 0;
 }
+
 .article-editTime {
   font-size: 12px;
   color: #a8a8a8;
@@ -121,4 +128,5 @@ export default {
   bottom: 0;
   left: 0;
 }
+
 </style>
